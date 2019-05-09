@@ -13,7 +13,7 @@ class HomepageModel
         $this->db = $dbConnection;
     }
 
-    public function __invoke()
+    public function getToDos()
     {
         $query= $this->db->prepare("SELECT `id`, `message` FROM `todo_table` WHERE `completed` = '0' AND `deleted` = '0';");
         $query->execute();
