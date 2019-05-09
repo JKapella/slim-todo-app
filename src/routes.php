@@ -7,5 +7,5 @@ use Slim\Http\Response;
 return function (App $app) {
     $container = $app->getContainer();
 
-    $app->get('/', function (){}); //TODO add correct functionality for route
+    $app->get('/', 'homepageController');
 };
