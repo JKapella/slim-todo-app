@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.43)
 # Database: todo_app
-# Generation Time: 2019-05-09 09:20:22 +0000
+# Generation Time: 2019-05-09 10:34:43 +0000
 # ************************************************************
 
 
@@ -28,11 +28,21 @@ DROP TABLE IF EXISTS `todo_table`;
 CREATE TABLE `todo_table` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `message` varchar(2000) DEFAULT NULL,
-  `completed` tinyint(11) NOT NULL,
-  `deleted` tinyint(11) NOT NULL,
+  `completed` tinyint(11) NOT NULL DEFAULT '0',
+  `deleted` tinyint(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+LOCK TABLES `todo_table` WRITE;
+/*!40000 ALTER TABLE `todo_table` DISABLE KEYS */;
+
+INSERT INTO `todo_table` (`id`, `message`, `completed`, `deleted`)
+VALUES
+	(1,'Finish Todo app',0,0),
+	(2,'spread love',0,0);
+
+/*!40000 ALTER TABLE `todo_table` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 

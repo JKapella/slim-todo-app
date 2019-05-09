@@ -19,4 +19,9 @@ class HomepageModel
         $query->execute();
         return $query->fetchAll();
     }
+
+    public function addToDo()
+    {
+
+    }
 }
