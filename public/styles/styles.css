@@ -6,7 +6,7 @@ aside {
     position: fixed;
     top: 30px;
     border: solid 2px #000000;
-    width: 600px;
+    width: 585px;
 }
 
 main {
@@ -22,5 +22,5 @@ main {
 
 .todo-item {
     border: solid 2px #000000;
-    margin: 30px auto;
+    margin: 30px 0 30px 15px;
 }
