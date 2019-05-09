@@ -21,6 +21,7 @@ return function (App $app) {
 
     //Factories
     $container['homepageController'] = new \Todo\Factories\HomepageControllerFactory();
+    $container['completeTodoController'] = new \Todo\Factories\CompleteTodoControllerFactory();
     $container['addTodoController'] = new \Todo\Factories\AddTodoControllerFactory();
     $container['homepageModel'] = new \Todo\Factories\HomepageModelFactory();
 

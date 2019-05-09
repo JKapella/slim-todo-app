@@ -9,9 +9,5 @@ return function (App $app) {
 
     $app->get('/', 'homepageController');
     $app->post('/addTodo', 'addTodoController');
-    $app->post('/completeTodo', function() {
-        echo 'Completing this item on the list!';
-    });
-
-
+    $app->post('/completeTodo', 'completeTodoController');
 };
