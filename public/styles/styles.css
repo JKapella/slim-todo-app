@@ -2,8 +2,21 @@
     box-sizing: border-box;
 }
 
+aside {
+    position: fixed;
+    top: 30px;
+    border: solid 2px #000000;
+    width: 600px;
+}
+
 main {
-    width: 800px;
+    width: 600px;
+    position: relative;
+    left: 600px;
+}
+
+.container {
+    width: 1200px;
     margin: 0 auto;
 }
 
