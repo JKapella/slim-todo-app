@@ -20,6 +20,6 @@ class AddTodoController
         $postData = $request->getParsedBody();
         $toDoMessage = $postData['message'];
         $this->model->addToDo($toDoMessage);
-        return $response->withRedirect('/', 200);
+        return $response->withRedirect('/');
     }
 }
