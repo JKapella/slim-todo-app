@@ -17,4 +17,10 @@ class HomepageController
         $this->renderer = $renderer;
         $this->homepageModel = $homepageModel;
     }
+
+    public function __invoke($request, $response, $args)
+    {
+        $args['toDos'] = $this->homepageModel->getToDos();
+        $this->renderer->render($response, 'homepage.phtml', $args);
+    }
 }
