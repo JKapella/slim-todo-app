@@ -11,6 +11,14 @@ return function (App $app) {
         return new \Slim\Views\PhpRenderer($settings['template_path']);
     };
 
+    //dbConnection
+    $container['dbConnection'] = function ($c) {
+        $settings = $c->get('settings')['db'];
+        $db = new \PDO($settings['host'].$settings['dbName'], $settings['userName']);
+        $db->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC);
+        return $db;
+    };
+
     // monolog
     $container['logger'] = function ($c) {
         $settings = $c->get('settings')['logger'];
