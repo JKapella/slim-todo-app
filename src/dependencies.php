@@ -20,6 +20,7 @@ return function (App $app) {
     };
 
     //Factories
+    $container['homepageController'] = new \Todo\Factories\HomepageControllerFactory();
     $container['homepageModel'] = new \Todo\Factories\HomepageModelFactory();
 
     // monolog
