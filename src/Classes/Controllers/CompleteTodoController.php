@@ -6,7 +6,7 @@ namespace Todo\Controllers;
 
 use Todo\Models\HomepageModel;
 
-class completeTodoController
+class CompleteTodoController
 {
     private $model;
 

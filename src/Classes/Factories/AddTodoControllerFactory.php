@@ -7,7 +7,7 @@ namespace Todo\Factories;
 use Slim\Container;
 use Todo\Controllers\AddTodoController;
 
-class addTodoControllerFactory
+class AddTodoControllerFactory
 {
     public function __invoke(Container $container)
     {

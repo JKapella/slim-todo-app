@@ -21,7 +21,7 @@ return function (App $app) {
 
     //Factories
     $container['homepageController'] = new \Todo\Factories\HomepageControllerFactory();
-    $container['addTodoController'] = new \Todo\Factories\addTodoControllerFactory();
+    $container['addTodoController'] = new \Todo\Factories\AddTodoControllerFactory();
     $container['homepageModel'] = new \Todo\Factories\HomepageModelFactory();
 
     // monolog
