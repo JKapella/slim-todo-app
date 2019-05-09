@@ -20,8 +20,10 @@ class HomepageModel
         return $query->fetchAll();
     }
 
-    public function addToDo()
+    public function addToDo($message)
     {
-
+        $query= $this->db->prepare("INSERT INTO `todo_table` (`message`) VALUES (:message);");
+        $query->bindParam(':message', $message);
+        $query->execute();
     }
 }
