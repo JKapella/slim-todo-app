@@ -1,8 +1,20 @@
-<h1>TODO List app</h1>
+<html>
+<head>
+    <title>Todo List App</title>
+</head>
 
-<?php
+<body>
+    <h1>TODO List app</h1>
+    <?php
+        foreach ($toDos as $item) {
+            echo "<p>Todo" . $item['message'] . "</p>";
+        }
+    ?>
+    <form action='/addTodo' method='post'>
+        <input type='submit' value='submit'>
+    </form>
+</body>
+</html>
 
-    foreach ($toDos as $item) {
-        echo "<p>Todo" . $item['message'] . "</p>";
-    }
-?>
+
+
