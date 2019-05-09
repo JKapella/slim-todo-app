@@ -1,0 +1,13 @@
+* {
+    box-sizing: border-box;
+}
+
+main {
+    width: 800px;
+    margin: 0 auto;
+}
+
+.todo-item {
+    border: solid 2px #000000;
+    margin: 30px auto;
+}
