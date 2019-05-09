@@ -20,6 +20,13 @@ class HomepageModel
         return $query->fetchAll();
     }
 
+    public function getCompletedToDos()
+    {
+        $query= $this->db->prepare("SELECT `id`, `message` FROM `todo_table` WHERE `completed` = '1' AND `deleted` = '0';");
+        $query->execute();
+        return $query->fetchAll();
+    }
+
     public function addToDo($message)
     {
         $query = $this->db->prepare("INSERT INTO `todo_table` (`message`) VALUES (:message);");
