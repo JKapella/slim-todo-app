@@ -7,8 +7,14 @@
     <h1>TODO List app</h1>
     <?php
         foreach ($toDos as $item) {
-            echo "<p>Todo: " . $item['message'] . "</p>";
-        }
+            echo "
+            <div class='todo-item'>
+                <p>Todo: " . $item['message'] . "</p>
+                <form action='/completeTodo' method='post'>
+                    <input type='hidden' value='" . $item['id'] . "'/>
+                    <input type='submit' value='Complete'>
+                </form>
+            </div>";}
     ?>
     <form action='/addTodo' method='post'>
         <input type='text' name='message'>
