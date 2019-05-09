@@ -23,6 +23,7 @@ return function (App $app) {
     $container['homepageController'] = new \Todo\Factories\HomepageControllerFactory();
     $container['completeTodoController'] = new \Todo\Factories\CompleteTodoControllerFactory();
     $container['addTodoController'] = new \Todo\Factories\AddTodoControllerFactory();
+    $container['getCompletedTodosController'] = new \Todo\Factories\GetCompletedTodosControllerFactory();
     $container['homepageModel'] = new \Todo\Factories\HomepageModelFactory();
 
     // monolog
