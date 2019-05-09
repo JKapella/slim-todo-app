@@ -19,6 +19,9 @@ return function (App $app) {
         return $db;
     };
 
+    //Factories
+    $container['homepageModel'] = new \Todo\Factories\HomepageModelFactory();
+
     // monolog
     $container['logger'] = function ($c) {
         $settings = $c->get('settings')['logger'];
