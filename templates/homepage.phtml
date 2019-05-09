@@ -21,7 +21,8 @@
             foreach ($toDos as $item) {
                 echo "
                 <div class='todo-item'>
-                    <p>Todo: " . $item['message'] . "</p>
+                    <div class='todo-item-header'>To-Do Item</div>
+                    <p>" . $item['message'] . "</p>
                     <form action='/completeTodo' method='post'>
                         <input type='hidden' name='id' value='" . $item['id'] . "'/>
                         <input type='submit' value='Complete'>
