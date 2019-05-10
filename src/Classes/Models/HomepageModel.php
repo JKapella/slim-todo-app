@@ -29,9 +29,10 @@ class HomepageModel
 
     public function addToDo($message, $due_date)
     {
-        $query = $this->db->prepare("INSERT INTO `todo_table` (`message`, `due_date`) VALUES (:message, :due_date);");
+        $query = $this->db->prepare("INSERT INTO `todo_table` (`message`, `due_date`, `high_priority`) VALUES (:message, :due_date, :high_priority);");
         $query->bindParam(':message', $message);
         $query->bindParam(':due_date', $due_date);
+        $query->bindParam(':high_priority', $high_priority);
         $query->execute();
     }
 
