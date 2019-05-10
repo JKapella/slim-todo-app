@@ -41,4 +41,11 @@ class HomepageModel
         $query->bindParam(':id', $id);
         $query->execute();
     }
+
+    public function deleteTodo($id)
+    {
+        $query = $this->db->prepare("UPDATE `todo_table` SET `deleted` = '1' WHERE `id` = :id;");
+        $query->bindParam(':id', $id);
+        $query->execute();
+    }
 }
