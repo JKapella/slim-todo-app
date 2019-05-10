@@ -49,4 +49,12 @@ class HomepageModel
         $query->bindParam(':id', $id);
         $query->execute();
     }
+
+    public function calculateTodoOverdue($datas) {
+        $date = date('Y-m-d');
+        foreach ($datas as $data) {
+            $data['days_left'] = $date - $data['due_date'];
+        }
+        return $datas;
+    }
 }

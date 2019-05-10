@@ -20,7 +20,8 @@ class HomepageController
 
     public function __invoke($request, $response, $args)
     {
-        $args['toDos'] = $this->homepageModel->getToDos();
+        $data = $this->homepageModel->getToDos();
+        $args['toDos'] = $this->homepageModel->calculateTodoOverdue($data);
         $this->renderer->render($response, 'homepage.phtml', $args);
     }
 }
