@@ -19,10 +19,10 @@
                 <a class='optionButton' href='/getCompleted'><i class="fas fa-smile"></i> <span>See completed items</span></a>
                 <p>Add new To-Do Item:</p>
                 <form action='/addTodo' method='post'>
-                    <input type='text' name='message'>
-                    <input type='date' name='due_date'>
-                    <input type='hidden' name='high_priority' value='0'>
-                    High Priority?<input type='checkbox' name='high_priority' value='1'>
+                    What's the to-do?: <input type='text' name='message'>
+                    What's the due date?: <input type='date' name='due_date'>
+                    <input type='hidden' name='high_priority' value='0'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    Is it high Priority?:  <input type='checkbox' name='high_priority' value='1'>
                     <input type='submit' value='submit'>
                 </form>
             </div>
@@ -55,21 +55,27 @@
                     }
                     echo "
                     <div class='img-and-message'>
-                    <div class='item-img'></div>
+                    <div class='item-img ";
+                    if ($item['days_left'] >= 0) {
+                        echo "statue";
+                    } else {
+                        echo "skull";
+                    }
+                    echo "'></div>
                     <p>" . $item['message'] . "</p>
                     </div>";
                     if ($item['due_date'] != 0) {
                         if ($item['days_left'] > 0) {
-                            echo "<p class='days-remaining'>" . $item['days_left'] . " days left!</p>";
+                            echo "<p class='days-remaining'><strong>" . $item['days_left'] . " days left!</strong></p>";
                         } else if ($item['days_left'] == 0) {
-                            echo "<p class='days-remaining'><i class=\"fas fa-smile\"></i> * Due today! * <i class=\"fas fa-smile\"></i></p>";
+                            echo "<p class='days-remaining'><strong>Due today!</strong></p>";
                         } else {
-                            echo "<p class='days-remaining'>" . ($item['days_left'] *= -1) . " days overdue!</p>";
+                            echo "<p class='days-remaining'><strong>" . ($item['days_left'] *= -1) . " days overdue!</strong></p>";
                         }
                     }
                     echo "<form action='/completeTodo' method='post'>
                         <input type='hidden' name='id' value='" . $item['id'] . "'/>
-                        <input type='submit' value='Complete'>
+                        <input type='submit' value='Complete!'>
                     </form>
                 </div>";}
             ?>

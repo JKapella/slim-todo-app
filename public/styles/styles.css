@@ -56,7 +56,7 @@ a {
 }
 
 form {
-    padding-left: 20px;
+    padding: 0 20px;
 }
 
 form > input[type=text], form > input[type=submit] {
@@ -69,6 +69,22 @@ form > input[type=text] {
     border-bottom: solid 3px #D3D3D3;
     border-left: solid 3px #808080;
     border-top: solid 3px #808080;
+}
+
+form > input[type=date] {
+    border-right: solid 3px #D3D3D3;
+    border-bottom: solid 3px #D3D3D3;
+    border-left: solid 3px #808080;
+    border-top: solid 3px #808080;
+    font-size: 1.2rem;
+    margin-top: 2px;
+}
+
+form > input[type=checkbox] {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    border-radius: 0;
 }
 
 form > input[type=submit], a {
@@ -123,6 +139,11 @@ form > input[type=submit]:hover, a:hover {
 
 .todo-item > p {
     padding: 0 20px;
+}
+
+.todo-item > form > input[type=submit] {
+    display: block;
+    margin: 0 auto;
 }
 
 .todo-item-ok {
@@ -191,6 +212,7 @@ span {
 
 .days-remaining {
     text-align: center;
+    margin-top: 10px;
 }
 
 .img-and-message {
@@ -205,8 +227,16 @@ span {
 .item-img {
     height: 80px;
     width: 80px;
-    background-image: url("../img/skull2.png");
+
     background-size: cover;
     float: left;
     margin-right: 30px;
+}
+
+.skull {
+    background-image: url("../img/skull2.png");
+}
+
+.statue {
+    background-image: url("../img/statue_small.png");
 }

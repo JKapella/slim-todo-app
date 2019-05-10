@@ -1,0 +1,85 @@
+<html>
+<head>
+    <title>Todo List App</title>
+    <link href="https://fonts.googleapis.com/css?family=Concert+One|Rubik+Mono+One" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel='stylesheet' href='styles/styles.css'>
+</head>
+
+<body>
+<div class='container'>
+    <aside>
+        <h1>2 -</h1>
+        <h1>D u</h1>
+        <h3>THE TO-DO LIST APP</h3>
+        <h4>ジェームズ・カペラ</h4>
+        <div class='todo-item todo-item-ok'>
+            <div class='todo-item-header todo-item-header-ok'>Control Panel</div>
+            <a class='optionButton' href='/'><i class="fas fa-reply-all"></i> <span>See outstanding items</span></a>
+            <a class='optionButton' href='/getCompleted'><i class="fas fa-smile"></i> <span>See completed items</span></a>
+            <p>Add new To-Do Item:</p>
+            <form action='/addTodo' method='post'>
+                What's the to-do?: <input type='text' name='message'>
+                What's the due date?: <input type='date' name='due_date'>
+                <input type='hidden' name='high_priority' value='0'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Is it high Priority?:  <input type='checkbox' name='high_priority' value='1'>
+                <input type='submit' value='submit'>
+            </form>
+        </div>
+    </aside>
+    <main>
+        <?php
+        foreach ($toDos as $item) {
+            if ($item['days_left'] >= 0) {
+                echo "<div class='todo-item todo-item-ok'>";
+            } else {
+                echo "<div class='todo-item todo-item-overdue'>";
+            }
+            echo "<div class='todo-item-header";
+            if ($item['days_left'] >= 0) {
+                echo " todo-item-header-ok";
+            } else {
+                echo " todo-item-header-overdue";
+            }
+            echo "'>To-Do";
+            if ($item['due_date'] != 0) {
+                echo ": Due " . $item['due_date'];
+            }
+            echo "<form class='delete' action='/deleteTodo' method='post'>
+                        <input type='hidden' name='id' value='" . $item['id'] . "'/>
+                        <input type='submit' value=' X '>
+                    </form>
+                    </div>";
+            if ($item['high_priority'] == '1') {
+                echo "<p class='high-priority'>HIGH PRIORITY! ハイ</p>";
+            }
+            echo "
+                    <div class='img-and-message'>
+                    <div class='item-img ";
+            if ($item['days_left'] >= 0) {
+                echo "statue";
+            } else {
+                echo "skull";
+            }
+            echo "'></div>
+                    <p>" . $item['message'] . "</p>
+                    </div>";
+            if ($item['due_date'] != 0) {
+                if ($item['days_left'] > 0) {
+                    echo "<p class='days-remaining'><strong>" . $item['days_left'] . " days left!</strong></p>";
+                } else if ($item['days_left'] == 0) {
+                    echo "<p class='days-remaining'><strong>Due today!</strong></p>";
+                } else {
+                    echo "<p class='days-remaining'><strong>" . ($item['days_left'] *= -1) . " days overdue!</strong></p>";
+                }
+            }
+            echo "<form action='/completeTodo' method='post'>
+                        <input type='hidden' name='id' value='" . $item['id'] . "'/>
+                        <input type='submit' value='Complete!'>
+                    </form>
+                </div>";}
+        ?>
+    </main>
+</div>
+</body>
+</html>
