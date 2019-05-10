@@ -15,7 +15,7 @@ class HomepageModel
 
     public function getToDos()
     {
-        $query= $this->db->prepare("SELECT `id`, `message` FROM `todo_table` WHERE `completed` = '0' AND `deleted` = '0';");
+        $query= $this->db->prepare("SELECT `id`, `message`, `due_date` FROM `todo_table` WHERE `completed` = '0' AND `deleted` = '0';");
         $query->execute();
         return $query->fetchAll();
     }
