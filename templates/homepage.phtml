@@ -30,6 +30,7 @@
         <main>
             <?php
             foreach ($toDos as $item) {
+                var_dump($item);
                 echo "
                 <div class='todo-item'>
                     <div class='todo-item-header'>To-Do Item: Due " . $item['due_date'] . "
@@ -42,6 +43,7 @@
                         echo "<p>HIGH PRIORITY! ハイ</p>";
                     }
                     echo "<p>" . $item['message'] . "</p>
+                    <p>" . $item['days_left'] . " days left!</p>
                     <form action='/completeTodo' method='post'>
                         <input type='hidden' name='id' value='" . $item['id'] . "'/>
                         <input type='submit' value='Complete'>

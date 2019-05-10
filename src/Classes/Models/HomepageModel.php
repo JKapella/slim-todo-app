@@ -51,10 +51,16 @@ class HomepageModel
     }
 
     public function calculateTodoOverdue($datas) {
-        $date = date('Y-m-d');
-        foreach ($datas as $data) {
-            $data['days_left'] = $date - $data['due_date'];
-        }
-        return $datas;
+        $dataNew = array_map(function ($data) {
+            $date = date('Y-m-d');
+            $date1 = date_create($date);
+            $date2 = date_create($data['due_date']);
+            $dateInterval = date_diff($date1,$date2);
+            $data['days_left'] = $dateInterval->days;
+            return $data;
+        }, $datas);
+
+        return $dataNew;
     }
 }
+
