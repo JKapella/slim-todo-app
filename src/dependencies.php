@@ -22,6 +22,7 @@ return function (App $app) {
     //Factories
     $container['homepageController'] = new \Todo\Factories\HomepageControllerFactory();
     $container['completeTodoController'] = new \Todo\Factories\CompleteTodoControllerFactory();
+    $container['deleteTodoController'] = new \Todo\Factories\DeleteTodoControllerFactory();
     $container['addTodoController'] = new \Todo\Factories\AddTodoControllerFactory();
     $container['getCompletedTodosController'] = new \Todo\Factories\GetCompletedTodosControllerFactory();
     $container['homepageModel'] = new \Todo\Factories\HomepageModelFactory();
