@@ -50,17 +50,20 @@ class HomepageModel
         $query->execute();
     }
 
-    public function calculateTodoOverdue($datas) {
-        $dataNew = array_map(function ($data) {
-            $date = date('Y-m-d');
-            $date1 = date_create($date);
-            $date2 = date_create($data['due_date']);
-            $dateInterval = date_diff($date1,$date2);
-            $data['days_left'] = $dateInterval->days;
+    public function calculateTodoOverdue($returnedData) {
+        $returnedDataNew = array_map(function ($data) {
+            $todaysDateString = date('Y-m-d');
+            $todaysDate = date_create($todaysDateString);
+            $dueDate = date_create($data['due_date']);
+            $dateInterval = date_diff($todaysDate,$dueDate);
+            $daysDifferent = $dateInterval->days;
+            if ($dateInterval->invert == 1) {
+                $daysDifferent *= -1;
+            }
+            $data['days_left'] = $daysDifferent;
             return $data;
-        }, $datas);
-
-        return $dataNew;
+        }, $returnedData);
+        return $returnedDataNew;
     }
 }
 

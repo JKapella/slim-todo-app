@@ -14,7 +14,7 @@
             <h3>THE TO-DO LIST APP</h3>
             <h4>ジェームズ・カペラ</h4>
             <div class='todo-item'>
-                <div class='todo-item-header'>Control Panel</div>
+                <div class='todo-item-header todo-item-header-ok'>Control Panel</div>
                 <a class='optionButton' href='/'><i class="fas fa-reply-all"></i> <span>See outstanding items</span></a>
                 <a class='optionButton' href='/getCompleted'><i class="fas fa-smile"></i> <span>See completed items</span></a>
                 <p>Add new To-Do Item:</p>
@@ -30,11 +30,19 @@
         <main>
             <?php
             foreach ($toDos as $item) {
-                var_dump($item);
                 echo "
                 <div class='todo-item'>
-                    <div class='todo-item-header'>To-Do Item: Due " . $item['due_date'] . "
-                    <form class='delete' action='/deleteTodo' method='post'>
+                    <div class='todo-item-header";
+                    if ($item['days_left'] > 0) {
+                        echo " todo-item-header-overdue";
+                    } else {
+                        echo " todo-item-header-ok";
+                    }
+                    echo "'>To-Do";
+                    if ($item['due_date'] != 0) {
+                        echo ": Due " . $item['due_date'];
+                    }
+                    echo "<form class='delete' action='/deleteTodo' method='post'>
                         <input type='hidden' name='id' value='" . $item['id'] . "'/>
                         <input type='submit' value=' X '>
                     </form>
@@ -42,9 +50,17 @@
                     if ($item['high_priority'] == '1') {
                         echo "<p>HIGH PRIORITY! ハイ</p>";
                     }
-                    echo "<p>" . $item['message'] . "</p>
-                    <p>" . $item['days_left'] . " days left!</p>
-                    <form action='/completeTodo' method='post'>
+                    echo "<p>" . $item['message'] . "</p>";
+                    if ($item['due_date'] != 0) {
+                        if ($item['days_left'] > 0) {
+                            echo "<p>" . $item['days_left'] . " days left!</p>";
+                        } else if ($item['days_left'] == 0) {
+                            echo "<p>Due today!</p>";
+                        } else {
+                            echo "<p>" . ($item['days_left'] *= -1) . " days overdue!</p>";
+                        }
+                    }
+                    echo "<form action='/completeTodo' method='post'>
                         <input type='hidden' name='id' value='" . $item['id'] . "'/>
                         <input type='submit' value='Complete'>
                     </form>

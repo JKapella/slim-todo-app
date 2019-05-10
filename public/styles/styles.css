@@ -131,11 +131,18 @@ form > input[type=submit]:hover, a:hover {
 }
 
 .todo-item-header {
-    background-color: #0500C8;
     margin: 0;
     color: #FFFFFF;
     padding: 3px 3px 3px 20px;
     overflow: auto;
+}
+
+.todo-item-header-ok {
+    background-color: #0500C8;
+}
+
+.todo-item-header-overdue {
+    background-color: #FF0000;
 }
 
 .fa-smile {
