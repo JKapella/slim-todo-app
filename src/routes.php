@@ -11,4 +11,7 @@ return function (App $app) {
     $app->get('/getCompleted', 'getCompletedTodosController');
     $app->post('/addTodo', 'addTodoController');
     $app->post('/completeTodo', 'completeTodoController');
+    $app->post('/deleteTodo', function () {
+        echo 'TO DO Item Deleted!';
+    });
 };
