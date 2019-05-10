@@ -53,14 +53,18 @@
                     if ($item['high_priority'] == '1') {
                         echo "<p class='high-priority'>HIGH PRIORITY! ハイ</p>";
                     }
-                    echo "<p>" . $item['message'] . "</p>";
+                    echo "
+                    <div class='img-and-message'>
+                    <div class='item-img'></div>
+                    <p>" . $item['message'] . "</p>
+                    </div>";
                     if ($item['due_date'] != 0) {
                         if ($item['days_left'] > 0) {
-                            echo "<p>" . $item['days_left'] . " days left!</p>";
+                            echo "<p class='days-remaining'>" . $item['days_left'] . " days left!</p>";
                         } else if ($item['days_left'] == 0) {
-                            echo "<p>Due today!</p>";
+                            echo "<p class='days-remaining'><i class=\"fas fa-smile\"></i> * Due today! * <i class=\"fas fa-smile\"></i></p>";
                         } else {
-                            echo "<p>" . ($item['days_left'] *= -1) . " days overdue!</p>";
+                            echo "<p class='days-remaining'>" . ($item['days_left'] *= -1) . " days overdue!</p>";
                         }
                     }
                     echo "<form action='/completeTodo' method='post'>

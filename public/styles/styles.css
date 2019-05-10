@@ -122,7 +122,7 @@ form > input[type=submit]:hover, a:hover {
 }
 
 .todo-item > p {
-    padding-left: 20px;
+    padding: 0 20px;
 }
 
 .todo-item-ok {
@@ -187,4 +187,26 @@ span {
     margin: 10px auto;
     color: #FFFFFF;
     text-shadow: 0 0 2px rgba(255,255,255,1), 4px 4px 2px rgba(3,254,254,1), -4px -4px 2px rgba(244, 0, 254,1);
+}
+
+.days-remaining {
+    text-align: center;
+}
+
+.img-and-message {
+    overflow: auto;
+    padding: 10px 30px;
+}
+
+.img-and-message > p {
+    float: left;
+}
+
+.item-img {
+    height: 80px;
+    width: 80px;
+    background-image: url("../img/skull2.png");
+    background-size: cover;
+    float: left;
+    margin-right: 30px;
 }
