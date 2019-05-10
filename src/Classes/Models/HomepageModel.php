@@ -31,7 +31,7 @@ class HomepageModel
     {
         $query = $this->db->prepare("INSERT INTO `todo_table` (`message`, `due_date`) VALUES (:message, :due_date);");
         $query->bindParam(':message', $message);
-        $query->bindParam(':message', $due_date);
+        $query->bindParam(':due_date', $due_date);
         $query->execute();
     }
 
