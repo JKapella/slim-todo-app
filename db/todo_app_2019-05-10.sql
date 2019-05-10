@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.43)
 # Database: todo_app
-# Generation Time: 2019-05-09 10:34:43 +0000
+# Generation Time: 2019-05-10 10:36:03 +0000
 # ************************************************************
 
 
@@ -30,16 +30,33 @@ CREATE TABLE `todo_table` (
   `message` varchar(2000) DEFAULT NULL,
   `completed` tinyint(11) NOT NULL DEFAULT '0',
   `deleted` tinyint(11) NOT NULL DEFAULT '0',
+  `due_date` varchar(50) DEFAULT NULL,
+  `high_priority` tinyint(11) DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 LOCK TABLES `todo_table` WRITE;
 /*!40000 ALTER TABLE `todo_table` DISABLE KEYS */;
 
-INSERT INTO `todo_table` (`id`, `message`, `completed`, `deleted`)
+INSERT INTO `todo_table` (`id`, `message`, `completed`, `deleted`, `due_date`, `high_priority`)
 VALUES
-	(1,'Finish Todo app',0,0),
-	(2,'spread love',0,0);
+	(1,'Finish Todo app',1,1,NULL,NULL),
+	(2,'spread love',1,0,NULL,NULL),
+	(3,'Make this app v v nice',0,0,NULL,NULL),
+	(4,'Finish app',1,0,NULL,NULL),
+	(5,'Super finish app',1,0,NULL,NULL),
+	(6,'New thing!',1,0,NULL,NULL),
+	(7,'new item',0,0,NULL,NULL),
+	(8,'another new thing',0,0,NULL,NULL),
+	(9,'more stuff coming through here',0,0,NULL,NULL),
+	(10,'lovely to do list',0,0,NULL,NULL),
+	(11,'Sub tasks!',1,0,NULL,NULL),
+	(12,'New to do list item! Get it added!',0,0,NULL,NULL),
+	(13,'',1,0,NULL,NULL),
+	(14,'Get A E S T H E T I C',0,0,NULL,NULL),
+	(15,'Love Ashby',1,0,NULL,NULL),
+	(16,'test',0,0,'test',NULL),
+	(17,'Due Date',0,0,'2019-05-29',NULL);
 
 /*!40000 ALTER TABLE `todo_table` ENABLE KEYS */;
 UNLOCK TABLES;
