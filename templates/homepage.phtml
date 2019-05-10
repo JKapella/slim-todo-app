@@ -20,7 +20,7 @@
                 <p>Add new To-Do Item:</p>
                 <form action='/addTodo' method='post'>
                     <input type='text' name='message'>
-                    <input type='date' name='dueDate'>
+                    <input type='date' name='due_date'>
                     <input type='submit' value='submit'>
                 </form>
             </div>
@@ -30,7 +30,7 @@
             foreach ($toDos as $item) {
                 echo "
                 <div class='todo-item'>
-                    <div class='todo-item-header'>To-Do Item</div>
+                    <div class='todo-item-header'>To-Do Item: Due " . $item['due_date'] . "</div>
                     <p>" . $item['message'] . "</p>
                     <form action='/completeTodo' method='post'>
                         <input type='hidden' name='id' value='" . $item['id'] . "'/>
