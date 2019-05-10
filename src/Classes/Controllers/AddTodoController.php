@@ -19,7 +19,8 @@ class AddTodoController
     {
         $postData = $request->getParsedBody();
         $toDoMessage = $postData['message'];
-        $this->model->addToDo($toDoMessage);
+        $toDoDate = $postData['due_date'];
+        $this->model->addToDo($toDoMessage, $toDoDate);
         return $response->withRedirect('/');
     }
 }
