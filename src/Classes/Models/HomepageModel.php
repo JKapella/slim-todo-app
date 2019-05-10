@@ -27,10 +27,11 @@ class HomepageModel
         return $query->fetchAll();
     }
 
-    public function addToDo($message)
+    public function addToDo($message, $due_date)
     {
-        $query = $this->db->prepare("INSERT INTO `todo_table` (`message`) VALUES (:message);");
+        $query = $this->db->prepare("INSERT INTO `todo_table` (`message`, `due_date`) VALUES (:message, :due_date);");
         $query->bindParam(':message', $message);
+        $query->bindParam(':message', $due_date);
         $query->execute();
     }
 
