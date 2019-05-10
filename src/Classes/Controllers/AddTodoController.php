@@ -20,7 +20,8 @@ class AddTodoController
         $postData = $request->getParsedBody();
         $toDoMessage = $postData['message'];
         $toDoDate = $postData['due_date'];
-        $this->model->addToDo($toDoMessage, $toDoDate);
+        $highPriority = $postData['high_priority'];
+        $this->model->addToDo($toDoMessage, $toDoDate, $highPriority);
         return $response->withRedirect('/');
     }
 }
