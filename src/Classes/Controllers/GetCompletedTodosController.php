@@ -21,6 +21,6 @@ class GetCompletedTodosController
     public function __invoke($request, $response, $args)
     {
         $args['toDos'] = $this->model->getCompletedToDos();
-        $this->renderer->render($response, 'homepage.phtml', $args);
+        $this->renderer->render($response, 'completed.phtml', $args);
     }
 }

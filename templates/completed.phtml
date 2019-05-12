@@ -30,21 +30,8 @@
     <main>
         <?php
         foreach ($toDos as $item) {
-            if ($item['days_left'] >= 0) {
-                echo "<div class='todo-item todo-item-ok'>";
-            } else {
-                echo "<div class='todo-item todo-item-overdue'>";
-            }
-            echo "<div class='todo-item-header";
-            if ($item['days_left'] >= 0) {
-                echo " todo-item-header-ok";
-            } else {
-                echo " todo-item-header-overdue";
-            }
-            echo "'>To-Do";
-            if ($item['due_date'] != 0) {
-                echo ": Due " . $item['due_date'];
-            }
+            echo "<div class='todo-item todo-item-ok'>
+            <div class='todo-item-header todo-item-header-completed'> To-Do";
             echo "<form class='delete' action='/deleteTodo' method='post'>
                         <input type='hidden' name='id' value='" . $item['id'] . "'/>
                         <input type='submit' value=' X '>
