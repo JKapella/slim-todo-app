@@ -11,6 +11,22 @@ return function (App $app) {
         return new \Slim\Views\PhpRenderer($settings['template_path']);
     };
 
+    //dbConnection
+    $container['dbConnection'] = function ($c) {
+        $settings = $c->get('settings')['db'];
+        $db = new \PDO($settings['host'].$settings['dbName'], $settings['userName']);
+        $db->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC);
+        return $db;
+    };
+
+    //Factories
+    $container['homepageController'] = new \Todo\Factories\HomepageControllerFactory();
+    $container['completeTodoController'] = new \Todo\Factories\CompleteTodoControllerFactory();
+    $container['deleteTodoController'] = new \Todo\Factories\DeleteTodoControllerFactory();
+    $container['addTodoController'] = new \Todo\Factories\AddTodoControllerFactory();
+    $container['getCompletedTodosController'] = new \Todo\Factories\GetCompletedTodosControllerFactory();
+    $container['homepageModel'] = new \Todo\Factories\HomepageModelFactory();
+
     // monolog
     $container['logger'] = function ($c) {
         $settings = $c->get('settings')['logger'];
