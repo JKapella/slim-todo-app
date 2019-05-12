@@ -22,7 +22,7 @@ class HomepageModel
 
     public function getCompletedToDos()
     {
-        $query= $this->db->prepare("SELECT `id`, `message` FROM `todo_table` WHERE `completed` = '1' AND `deleted` = '0';");
+        $query= $this->db->prepare("SELECT `id`, `message`, `high_priority` FROM `todo_table` WHERE `completed` = '1' AND `deleted` = '0';");
         $query->execute();
         return $query->fetchAll();
     }

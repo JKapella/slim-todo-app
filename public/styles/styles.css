@@ -123,6 +123,22 @@ form > input[type=submit]:hover, a:hover {
     cursor: pointer;
 }
 
+div.todo-item-header.todo-item-header-completed > input[type=submit] {
+    font-size: 1.2rem;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    float: right;
+    border-right: solid 3px #808080;
+    border-bottom: solid 3px #808080;
+    border-left: solid 3px #D3D3D3;
+    border-top: solid 3px #D3D3D3;
+    outline: none;
+    background-color: #BBBBBB;
+    font-family: "Courier New", sans-serif;
+    color: #868686;
+}
+
 .container {
     width: 1200px;
     margin: 0 auto;
@@ -187,6 +203,10 @@ form > input[type=submit]:hover, a:hover {
     background-color: #FF0000;
 }
 
+.todo-item-header-completed {
+    background-color: #01d000;
+}
+
 .fa-smile {
     color: transparent;
     text-shadow: 0 0 2px rgba(255,255,0,1);
@@ -239,4 +259,8 @@ span {
 
 .statue {
     background-image: url("../img/statue_small.png");
+}
+
+.dolphin {
+    background-image: url("../img/dolphin.png");
 }
